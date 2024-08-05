@@ -1,4 +1,4 @@
-<h1>ascii-art-web</h1>
+<h1>ascii-art-web stylize</h1>
 
 <h2>Description</h2>
 <p>Ascii-Art-Web is now available as a web application! The web version of the tool generates ASCII art banners based on user-provided text input directly on the website, instead of using the command line. It continues to use predefined banner templates to create visually appealing representations of the input text.</p>
