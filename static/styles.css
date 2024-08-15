@@ -17,7 +17,7 @@ body {
     /* flex-direction: column; */
 }
 
-.left-box, .center-box, .right-box {
+.left-box, .center-box {
     flex: 1;  /* Make each box flex to fill available space equally */
     padding: 10px;  /* Add internal padding */
     border: 2px solid rgb(145, 124, 124);  /* Add white border with thickness */
@@ -28,6 +28,18 @@ body {
 
 .left-box {
     max-width: 200px;
+}
+
+.button-container {
+    display: flex;  /* Use flexbox to align buttons side-by-side */
+    gap: 10px;  /* Add space between buttons */
+    justify-content: center;  /* Center the buttons horizontally */
+    width: 100%;  /* Ensure the container takes up full width */
+    border: 2px solid rgb(145, 124, 124);  /* Border to match other boxes */
+    border-radius: 5px;  /* Add rounded corners to the container */
+    margin: 5px 0;  /* Add margin above and below the container */
+    padding: 10px;  /* Add internal padding */
+    box-sizing: border-box;  /* Include padding and border in width/height calculations */
 }
 
 textarea {
@@ -59,7 +71,34 @@ select {
     height: 45px;
 }
 
-#submitButton {
+#submitButton, #downloadButton {
+    width: 48%;  /* Set width to ensure space between buttons */
+    height: 50px;  /* Set the button height */
+    font-size: 16px;  /* Set the font size */
+    background-color: #3f443f;  /* Background color */
+    color: white;  /* Text color */
+    border: none;  /* No border */
+    border-radius: 5px;  /* Rounded corners */
+    cursor: pointer;  /* Pointer cursor on hover */
+    text-decoration: none;  /* No underline */
+    text-align: center;  /* Center text horizontally */
+    display: flex;  /* Use flexbox to align content */
+    align-items: center;  /* Center content vertically */
+    justify-content: center;  /* Center content horizontally */
+    box-sizing: border-box;  /* Include padding and border in width/height */
+    transition: background-color 0.3s, color 0.3s, border 0.3s;  /* Smooth transition for hover effects */
+}
+
+#submitButton:hover, #downloadButton:hover {
+    font-weight: bold;  /* Bold text on hover */
+    background-color: white;  /* Background color on hover */
+    color: #3f443f;  /* Text color on hover */
+    border: solid 5px #3f443f;  /* Border on hover */
+    box-sizing: border-box;  /* Ensure consistent sizing */
+}
+
+
+/* #submitButton {
     width: 40%;  /* Set the button width */
     height: 50px;  /* Set the button height */
     font-size: 16px;  /* Adjust text size within the button */
@@ -74,6 +113,7 @@ select {
 #downloadButton {
     width: 40%;  /* Set the button width */
     height: 50px;  /* Set the button height */
+    text-decoration: none;
     font-size: 16px;  /* Adjust text size within the button */
     padding: 16px 90px;  /* Add padding for spacing around the text */
     background-color: #3f443f;  /* Set a background color */
@@ -88,6 +128,7 @@ select {
     height: 50px;  /* Set the button height */
     font-size: 16px;  /* Adjust text size within the button */
     font-weight: bold;
+    text-decoration: none;
     padding: 10px 90px;  /* Add padding for spacing around the text */
     background-color: white;  /* Set a background color */
     color: #3f443f;  /* Set text color */
@@ -109,7 +150,7 @@ select {
     border: solid 5px #3f443f; ; 
     border-radius: 5px;  /* Add rounded corners */
     cursor: pointer;  /* Indicate clickable behavior */
-}
+} */
 
 .back {
     width: 50%;
@@ -147,5 +188,9 @@ select {
    }
    .left-box {
         max-width: 100%;
+    }
+    .button-container {
+        flex-direction: column;  /* Stack buttons vertically */
+        gap: 10px;  /* Add space between stacked buttons */
     }
 }
