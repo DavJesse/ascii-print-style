@@ -71,6 +71,32 @@ select {
     cursor: pointer;  /* Indicate clickable behavior */
 }
 
+#downloadButton {
+    width: 40%;  /* Set the button width */
+    height: 50px;  /* Set the button height */
+    font-size: 16px;  /* Adjust text size within the button */
+    padding: 16px 90px;  /* Add padding for spacing around the text */
+    background-color: #3f443f;  /* Set a background color */
+    color: white;  /* Set text color */
+    border: none;  /* Remove default border */
+    border-radius: 5px;  /* Add rounded corners */
+    cursor: pointer;  /* Indicate clickable behavior */
+}
+
+#downloadButton:hover {
+    width: 40%;  /* Set the button width */
+    height: 50px;  /* Set the button height */
+    font-size: 16px;  /* Adjust text size within the button */
+    font-weight: bold;
+    padding: 10px 90px;  /* Add padding for spacing around the text */
+    background-color: white;  /* Set a background color */
+    color: #3f443f;  /* Set text color */
+    border: none;  /* Remove default border */
+    border: solid 5px #3f443f; ; 
+    border-radius: 5px;  /* Add rounded corners */
+    cursor: pointer;  /* Indicate clickable behavior */
+}
+
 #submitButton:hover {
     width: 40%;  /* Set the button width */
     height: 50px;  /* Set the button height */
