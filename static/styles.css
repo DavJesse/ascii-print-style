@@ -82,10 +82,6 @@ select {
     cursor: pointer;  /* Pointer cursor on hover */
     text-decoration: none;  /* No underline */
     text-align: center;  /* Center text horizontally */
-    display: flex;  /* Use flexbox to align content */
-    align-items: center;  /* Center content vertically */
-    justify-content: center;  /* Center content horizontally */
-    box-sizing: border-box;  /* Include padding and border in width/height */
     transition: background-color 0.3s, color 0.3s, border 0.3s;  /* Smooth transition for hover effects */
 }
 
@@ -94,13 +90,12 @@ select {
     height: 50px;  /* Set the button height */
     font-size: 16px;  /* Adjust text size within the button */
     font-weight: bold;
-    text-decoration: none;
     padding: 16px 90px;  /* Add padding for spacing around the text */
     font-weight: bold;  /* Bold text on hover */
     background-color: white;  /* Background color on hover */
     color: #3f443f;  /* Text color on hover */
     border: solid 5px #3f443f;  /* Border on hover */
-    box-sizing: border-box;  /* Ensure consistent sizing */
+    text-align: center;
 }
 
 .back {
