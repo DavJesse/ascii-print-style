@@ -72,7 +72,7 @@ select {
 }
 
 #submitButton, #downloadButton {
-    width: 48%;  /* Set width to ensure space between buttons */
+    width: 50%;  /* Set width to ensure space between buttons */
     height: 50px;  /* Set the button height */
     font-size: 16px;  /* Set the font size */
     background-color: #3f443f;  /* Background color */
@@ -82,75 +82,21 @@ select {
     cursor: pointer;  /* Pointer cursor on hover */
     text-decoration: none;  /* No underline */
     text-align: center;  /* Center text horizontally */
-    display: flex;  /* Use flexbox to align content */
-    align-items: center;  /* Center content vertically */
-    justify-content: center;  /* Center content horizontally */
-    box-sizing: border-box;  /* Include padding and border in width/height */
     transition: background-color 0.3s, color 0.3s, border 0.3s;  /* Smooth transition for hover effects */
 }
 
 #submitButton:hover, #downloadButton:hover {
+    width: 50%;  /* Set the button width */
+    height: 50px;  /* Set the button height */
+    font-size: 16px;  /* Adjust text size within the button */
+    font-weight: bold;
+    padding: 16px 90px;  /* Add padding for spacing around the text */
     font-weight: bold;  /* Bold text on hover */
     background-color: white;  /* Background color on hover */
     color: #3f443f;  /* Text color on hover */
     border: solid 5px #3f443f;  /* Border on hover */
-    box-sizing: border-box;  /* Ensure consistent sizing */
+    text-align: center;
 }
-
-
-/* #submitButton {
-    width: 40%;  /* Set the button width */
-    height: 50px;  /* Set the button height */
-    font-size: 16px;  /* Adjust text size within the button */
-    padding: 10px 0px;  /* Add padding for spacing around the text */
-    background-color: #3f443f;  /* Set a background color */
-    color: white;  /* Set text color */
-    border: none;  /* Remove default border */
-    border-radius: 5px;  /* Add rounded corners */
-    cursor: pointer;  /* Indicate clickable behavior */
-}
-
-#downloadButton {
-    width: 40%;  /* Set the button width */
-    height: 50px;  /* Set the button height */
-    text-decoration: none;
-    font-size: 16px;  /* Adjust text size within the button */
-    padding: 16px 90px;  /* Add padding for spacing around the text */
-    background-color: #3f443f;  /* Set a background color */
-    color: white;  /* Set text color */
-    border: none;  /* Remove default border */
-    border-radius: 5px;  /* Add rounded corners */
-    cursor: pointer;  /* Indicate clickable behavior */
-}
-
-#downloadButton:hover {
-    width: 40%;  /* Set the button width */
-    height: 50px;  /* Set the button height */
-    font-size: 16px;  /* Adjust text size within the button */
-    font-weight: bold;
-    text-decoration: none;
-    padding: 10px 90px;  /* Add padding for spacing around the text */
-    background-color: white;  /* Set a background color */
-    color: #3f443f;  /* Set text color */
-    border: none;  /* Remove default border */
-    border: solid 5px #3f443f; ; 
-    border-radius: 5px;  /* Add rounded corners */
-    cursor: pointer;  /* Indicate clickable behavior */
-}
-
-#submitButton:hover {
-    width: 40%;  /* Set the button width */
-    height: 50px;  /* Set the button height */
-    font-size: 16px;  /* Adjust text size within the button */
-    font-weight: bold;
-    padding: 10px 0px;  /* Add padding for spacing around the text */
-    background-color: white;  /* Set a background color */
-    color: #3f443f;  /* Set text color */
-    border: none;  /* Remove default border */
-    border: solid 5px #3f443f; ; 
-    border-radius: 5px;  /* Add rounded corners */
-    cursor: pointer;  /* Indicate clickable behavior */
-} */
 
 .back {
     width: 50%;
