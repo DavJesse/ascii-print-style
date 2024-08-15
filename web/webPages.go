@@ -2,6 +2,7 @@ package Web
 
 import (
 	"net/http"
+	"os"
 	"strings"
 	"text/template"
 
@@ -84,9 +85,29 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 			// If no error print ascii-art below form on submitForm.html
 		} else {
+			// Save ASCII art to art.txt file
+			filePath := "static/art.txt"
+			err := os.WriteFile(filePath, []byte(output), 0o644)
+			if err != nil {
+				w.WriteHeader(http.StatusInternalServerError)
+				tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
+				tmpl.Execute(w, struct {
+					Issue string
+					Code  int
+				}{Issue: "Failed to save file", Code: http.StatusInternalServerError})
+				return
+			}
 			// Safely load html template from submitForm.html
 			tmpl = template.Must(template.ParseFiles("templates/submitForm.html"))
 			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
 		}
 	}
+}
+
+func DownloadArtHandler(w http.ResponseWriter, r *http.Request) {
+	filePath := "static/art.txt"
+
+	// Set the Content-Disposition header to attachment to force download
+	w.Header().Set("Content-Disposition", "attachment; filename=art.txt")
+	http.ServeFile(w, r, filePath)
 }
