@@ -82,7 +82,7 @@ func TestValidFile(t *testing.T) {
 func TestFileIntegrity(t *testing.T) {
 	file, _ := os.ReadFile("../banner-files/standard.txt")
 
-	//Generate hash for banner file
+	// Generate hash for banner file
 	hash := sha256.New()
 	hash.Write(file)
 	got := fmt.Sprintf("%x", hash.Sum(nil))
