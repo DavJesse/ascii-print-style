@@ -126,7 +126,7 @@ func DownloadArtHandler(w http.ResponseWriter, r *http.Request) {
 	// Set the appropriate headers to attachment to force download
 	w.Header().Set("Content-Disposition", "attachment; filename="+filepath.Base(filePath))
 	w.Header().Set("Content-Type", contentType)
-	w.Header().Set("Content-Length", string(contentLength))
+	w.Header().Set("Content-Length", string(int32(contentLength)))
 
 	http.ServeFile(w, r, filePath)
 }
