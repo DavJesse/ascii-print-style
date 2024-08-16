@@ -42,6 +42,16 @@ body {
     box-sizing: border-box;  /* Include padding and border in width/height calculations */
 }
 
+.download-container {
+    display: flex;  /* Use flexbox for layout */
+    justify-content: center;  /* Center the content horizontally */
+    align-items: center;  /* Center the content vertically */
+    width: 60%;  /* Set the container width */
+    margin: 0 auto;  /* Center the container horizontally */
+    padding: 10px;  /* Add internal padding */
+    box-sizing: border-box;  /* Include padding and border in width/height calculations */
+}
+
 textarea {
     width: 95%;
     max-width: 700px;
