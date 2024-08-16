@@ -50,15 +50,15 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		// Serve form and ascii-art/error after form submission
 	} else if r.Method == http.MethodPost {
 
-		// Extract banner style selected and text inputed in form
+		// Extract banner style selected and text inputted in form
 		bnStyle = r.FormValue("style")
 		inputStr = r.FormValue("inputStr")
-
-		// Run AsciiArt function with banner style selected and input string
+	
+		// Generate the ASCII art
 		output, err := lib.AsciiArt(inputStr, bnStyle+".txt")
 
-		// Should there occur an error, serve errorPrinter.html with the nature of error
 		if err != "" {
+			// Handle errors by rendering an error template
 			tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
 
 			if strings.Contains(err, "PRINTABLE ASCII") {
@@ -85,21 +85,25 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 			// If no error print ascii-art below form on submitForm.html
 		} else {
-			// Save ASCII art to art.txt file
-			filePath := "static/art.txt"
-			err := os.WriteFile(filePath, []byte(output), 0o644)
-			if err != nil {
-				w.WriteHeader(http.StatusInternalServerError)
-				tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
+			    // Save the ASCII art to a file
+				filePath := "static/art.txt"
+				err := os.WriteFile(filePath, []byte(output), 0o644)
+				if err != nil {
+					w.WriteHeader(http.StatusInternalServerError)
+					tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
+					tmpl.Execute(w, struct {
+						Issue string
+						Code  int
+					}{Issue: "Failed to save file", Code: http.StatusInternalServerError})
+					return
+				}
+		
+				// Render the form with the ASCII art and download button
+				tmpl = template.Must(template.ParseFiles("templates/submitForm.html"))
 				tmpl.Execute(w, struct {
-					Issue string
-					Code  int
-				}{Issue: "Failed to save file", Code: http.StatusInternalServerError})
-				return
-			}
-			// Safely load html template from submitForm.html
-			tmpl = template.Must(template.ParseFiles("templates/submitForm.html"))
-			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
+					AsciiArt string
+					Input    string
+				}{AsciiArt: output, Input: inputStr})
 		}
 	}
 }
