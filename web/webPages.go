@@ -110,7 +110,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func DownloadArtHandler(w http.ResponseWriter, r *http.Request) {
-	filePath := "static/art.txt"
+	filePath := "static/download-art.txt"
 
 	fileInfo, err := os.Stat(filePath) // Retrieve information about the printed file
 
