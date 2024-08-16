@@ -113,15 +113,14 @@ func DownloadArtHandler(w http.ResponseWriter, r *http.Request) {
 	filePath := "static/download-art.txt"
 
 	fileInfo, err := os.Stat(filePath) // Retrieve information about the printed file
-
-	// Respond with appropriate error code should we miss file information 
+	// Respond with appropriate error code should we miss file information
 	if err != nil {
 		http.Error(w, "File Not Found", http.StatusNotFound)
 		return
 	}
 
 	contentLength := fileInfo.Size() // Retrieve size of file
-	contentType := "plain/text" // save content type
+	contentType := "plain/text"      // save content type
 
 	// Set the appropriate headers to attachment to force download
 	w.Header().Set("Content-Disposition", "attachment; filename="+filepath.Base(filePath))
