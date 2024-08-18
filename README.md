@@ -16,16 +16,13 @@
     <li>Clone the repository to your local machine. From Gitea:</li><pre>git clone https://learn.zone01kisumu.ke/git/davodhiambo/ascii-art-web-export-file.git</pre>
     <li>Navigate to the project directory.</li>
     <pre>cd ascii-art-web-export-file</pre>
-    <li>Open your web browser and navigate to <code>http://localhost:&lt;valid-port&gt;</code> to access the web application.</li>
+    <li>Open your web browser and navigate to <code>http://localhost:8000</code> to access the web application.</li>
     <li>Navigate to the web application URL.</li>
     <li>Enter the text you want to convert into an ASCII banner in the provided input field.</li>
     <li>Select the desired banner style (default is "standard").</li>
     <li>Click the "Print" button to see the ASCII art banner displayed on the webpage.</li>
     <li>Once the art is diplayed, press the download button to download the art.txt file containing the art.</li>
 </ol>
-
-<h2>Note</h2>
-<p>Valid port can be replaced with any port from 1024 to 49151</p>
 
 <h2>Example Usage</h2>
 <p>Visit the web application, input the text "Hello", and select the "standard" style to generate the following ASCII art:</p>
