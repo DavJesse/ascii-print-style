@@ -13,23 +13,15 @@
 
 <h2>Usage</h2>
 <ol>
+    <li>Clone the repository to your local machine. From Gitea:</li><pre>git clone https://learn.zone01kisumu.ke/git/davodhiambo/ascii-art-web-export-file.git</pre>
+    <li>Navigate to the project directory.</li>
+    <pre>cd ascii-art-web-export-file</pre>
+    <li>Open your web browser and navigate to <code>http://localhost:&lt;valid-port&gt;</code> to access the web application.</li>
     <li>Navigate to the web application URL.</li>
     <li>Enter the text you want to convert into an ASCII banner in the provided input field.</li>
     <li>Select the desired banner style (default is "standard").</li>
-    <li>Click the "Generate" button to see the ASCII art banner displayed on the webpage.</li>
-</ol>
-
-<h2>Usage</h2>
-<ol>
-    <li>Clone the repository to your local machine.</li>
-    <pre>From Gitea:<br>git clone https://learn.zone01kisumu.ke/git/davodhiambo/ascii-art-web-dockerize.git<br><br>From Github:<br>git clone https://github.com/somulo1/Docarize-a-software.git</pre>
-    <li>Navigate to the project directory.</li>
-    <pre>cd ascii-art-web-dockerize</pre>
-    <li>Run the following command to build docker image:</li>
-    <pre>docker build -t &lt;name-of-image&gt; .</pre>
-    <li>Run the following command to run the docker image:</li>
-    <pre>docker run -p &lt;valid-port&gt;:8000 &lt;name-of-image&gt;</pre>
-    <li>Open your web browser and navigate to <code>http://localhost:&lt;valid-port&gt;</code> to access the web application.</li>
+    <li>Click the "Print" button to see the ASCII art banner displayed on the webpage.</li>
+    <li>Once the art is diplayed, press the download button to download the art.txt file containing the art.</li>
 </ol>
 
 <h2>Note</h2>
