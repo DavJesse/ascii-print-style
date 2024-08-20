@@ -3,6 +3,7 @@ package Web
 import (
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 
@@ -50,15 +51,18 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		// Serve form and ascii-art/error after form submission
 	} else if r.Method == http.MethodPost {
 
-		// Extract banner style selected and text inputed in form
+		// Extract banner style selected and text inputted in form
 		bnStyle = r.FormValue("style")
+		if bnStyle == "" {
+			bnStyle = "standard"
+		}
 		inputStr = r.FormValue("inputStr")
 
-		// Run AsciiArt function with banner style selected and input string
+		// Generate the ASCII art
 		output, err := lib.AsciiArt(inputStr, bnStyle+".txt")
 
-		// Should there occur an error, serve errorPrinter.html with the nature of error
 		if err != "" {
+			// Handle errors by rendering an error template
 			tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
 
 			if strings.Contains(err, "PRINTABLE ASCII") {
@@ -85,8 +89,8 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 			// If no error print ascii-art below form on submitForm.html
 		} else {
-			// Save ASCII art to art.txt file
-			filePath := "static/art.txt"
+			// Save the ASCII art to a file
+			filePath := "static/download-art.txt"
 			err := os.WriteFile(filePath, []byte(output), 0o644)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
@@ -97,17 +101,34 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 				}{Issue: "Failed to save file", Code: http.StatusInternalServerError})
 				return
 			}
-			// Safely load html template from submitForm.html
+
+			// Render the form with the ASCII art and download button
 			tmpl = template.Must(template.ParseFiles("templates/submitForm.html"))
-			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
+			tmpl.Execute(w, struct {
+				AsciiArt string
+				Input    string
+			}{AsciiArt: output, Input: inputStr})
 		}
 	}
 }
 
 func DownloadArtHandler(w http.ResponseWriter, r *http.Request) {
-	filePath := "static/art.txt"
+	filePath := "static/download-art.txt"
 
-	// Set the Content-Disposition header to attachment to force download
-	w.Header().Set("Content-Disposition", "attachment; filename=art.txt")
+	fileInfo, err := os.Stat(filePath) // Retrieve information about the printed file
+	// Respond with appropriate error code should we miss file information
+	if err != nil {
+		http.Error(w, "File Not Found", http.StatusNotFound)
+		return
+	}
+
+	contentLength := fileInfo.Size() // Retrieve size of file
+	contentType := "plain/text"      // save content type
+
+	// Set the appropriate headers to attachment to force download
+	w.Header().Set("Content-Disposition", "attachment; filename="+filepath.Base(filePath))
+	w.Header().Set("Content-Type", contentType)
+	w.Header().Set("Content-Length", string(int32(contentLength)))
+
 	http.ServeFile(w, r, filePath)
 }
