@@ -53,6 +53,9 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 		// Extract banner style selected and text inputted in form
 		bnStyle = r.FormValue("style")
+		if bnStyle == "" {
+			bnStyle = "standard"
+		}
 		inputStr = r.FormValue("inputStr")
 
 		// Generate the ASCII art
