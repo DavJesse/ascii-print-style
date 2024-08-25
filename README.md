@@ -14,27 +14,20 @@
 
 <h2>Usage</h2>
 <ol>
+    <li>Clone the repository to your local machine. From Gitea:</li><pre>git clone https://learn.zone01kisumu.ke/git/davodhiambo/ascii-art-web-export-file.git</pre>
+    <li>Navigate to the project directory.</li>
+    <pre>cd ascii-art-web-export-file</pre>
+    <li>Start server:</li>
+    <pre>go run .</pre>
+    <li>Open your web browser and navigate to <code>http://localhost:8000</code> to access the web application.</li>
     <li>Navigate to the web application URL.</li>
     <li>Enter the text you want to convert into an ASCII banner in the provided input field.</li>
     <li>Select the desired banner style (default is "standard").</li>
     <li>Click the "Generate" button to see the ASCII art banner displayed on the webpage.</li>
     <li>Should you wish to export the art, click on the 'Download Art' button.</li>
-</ol>
-
-<h2>Usage</h2>
-<ol>
-    <li>Clone the repository to your local machine.</li>
-    <pre>From Gitea:<br>git clone https://learn.zone01kisumu.ke/git/davodhiambo/ascii-art-web-export-file.git<br><br>From Github:<br>git clone https://github.com/DavJesse/ascii-print-style.git</pre>
     <li>Navigate to the project directory.</li>
     <pre>For Gitea<br>cd ascii-art-web-export-file<br><br>For Github<br>cd ascii-print-style</pre>
-    <li>Start server:</li>
-    <pre>go run .</pre>
-    <li>Access server locally from your browser</li>
-    <pre>http://localhost:8000</pre></li>
 </ol>
-
-<h2>Note</h2>
-<p>Listening ports on main.go can be replaced with any port from 1024 to 49151</p>
 
 <h2>Example Usage</h2>
 <p>Visit the web application, input the text "Hello", and select the "standard" style to generate the following ASCII art:</p>
