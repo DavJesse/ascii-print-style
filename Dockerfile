@@ -29,8 +29,11 @@ USER appuser
 # Set the working directory again
 WORKDIR /app
 
-# Copy the binary from the builder stage
-COPY --from=builder /app/. .
+# Copy the binary application and dependancies from the builder stage
+COPY --from=builder /app/dockerize .
+COPY static /app/static
+COPY templates /app/templates
+COPY banner-files /app/banner-files
 
 # Expose the port on which the app runs
 EXPOSE 8000
