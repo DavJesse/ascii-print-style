@@ -3,6 +3,7 @@ package lib
 import (
 	"crypto/sha256"
 	"fmt"
+	"runtime"
 	"strings"
 )
 
@@ -102,4 +103,16 @@ func fileIntegrity(file []byte) bool {
 	}
 
 	return status
+}
+
+func checkOS() []string {
+	var sep []string
+	os := runtime.GOOS // Identify operating system
+	// Set separators according to operating system
+	if os == "windows" {
+		sep = []string{"\n", "\r\n"}
+	} else {
+		sep = []string{"\r\n", "\n"}
+	}
+	return sep
 }
