@@ -14,18 +14,17 @@
     </div>
     <div class="center-box">
         <form action="\ascii-art" method="POST">
-            <label for="style">Select Banner:</label> <br>
-            <select id="style" name="style">
-              <option value="standard">Standard</option>
-              <option value="shadow">Shadow</option>
-              <option value="thinkertoy">Thinkertoy</option>
-            </select><br><br>
-            
             <div class="right-box" >
-              <label for="text">Input Text:</label>
+              <label for="text"><strong>Input Text:</strong></label>
               <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
-              <div class="button-container">
-                <button type="submit" id="submitButton">Print</button>                   
+              <div class="button-container" >
+                <select id="style" name="style">
+                  <option value="standard" disabled selected>Select Banner File</option>
+                  <option value="standard">Standard</option>
+                  <option value="shadow">Shadow</option>
+                  <option value="thinkertoy">Thinkertoy</option>
+              </select>
+                <button type="submit" id="submitButton">Print</button>                 
               </div>
             </div>
 

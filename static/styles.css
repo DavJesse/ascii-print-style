@@ -3,6 +3,7 @@ body {
     font-size: 16px;
     margin: 0;  /* Remove default body margin */
     background-color: #ebeaea88;
+    height: 100%;
 }
 
 .container {
@@ -66,19 +67,19 @@ section {
     border-radius: 10px;
     padding: 20px;
     max-width: 1050px;
-    max-height: 400px;
+    max-height: 200px;
     margin: 10px auto;
     overflow: auto;
 }
 
 select {
+    width: 48%;  /* Set width to ensure space between buttons */
+    height: 50px;  /* Set the button height */
+    font-size: 16px;  /* Set the font size */
     padding: 10px 0px;
     border-radius: 5px;  /* Add rounded corners */
     text-align: center;
-    font-size: 16px;
     background-color: #ebeaea;
-    width: 25%;  /* Set the options width */
-    height: 45px;
 }
 
 #submitButton, #downloadButton {
@@ -105,6 +106,11 @@ select {
     color: #3f443f;  /* Text color on hover */
     border: solid 5px #3f443f;  /* Border on hover */
     box-sizing: border-box;  /* Ensure consistent sizing */
+}
+
+#downloadButton {
+    min-width: 200px;
+    max-width: 300px;
 }
 
 .back {
@@ -147,5 +153,8 @@ select {
     .button-container {
         flex-direction: column;  /* Stack buttons vertically */
         gap: 10px;  /* Add space between stacked buttons */
+    }
+    select, #submitButton {
+        width: 100%;
     }
 }
